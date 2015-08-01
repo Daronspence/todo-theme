@@ -299,7 +299,7 @@ var todo = (function( $ ){
 
 	}
 
-	$.ajax('/wp-json/wp/v2/posts?type=todos&filter[author]=' + $currentUserID , {
+	$.ajax('/wp-json/posts?type=todos&filter[author]=' + $currentUserID , {
 		success : function( data ){
 
 			// i = return object
@@ -334,7 +334,7 @@ var todo = (function( $ ){
 			return;
 		}
 
-		$.ajax('/wp-json/wp/v2/posts?type=todos&filter[author]=' + $currentUserID , {
+		$.ajax('/wp-json/posts?type=todos&filter[author]=' + $currentUserID , {
 			success : function( data ){
 
 				if ( data.length === 0 && $('.item').length > 0 ){
