@@ -18,7 +18,6 @@ var todo = (function( $ ){
 
 	var timer;
 
-
 	function listItemHTML( value, id, finished ) {
 		if ( id === undefined ){ // if id is missing
 			id = '';
@@ -300,7 +299,7 @@ var todo = (function( $ ){
 
 	}
 
-	$.ajax('/wp-json/posts?type=todos&filter[author]=' + $currentUserID , {
+	$.ajax('/wp-json/wp/v2/posts?type=todos&filter[author]=' + $currentUserID , {
 		success : function( data ){
 
 			// i = return object
@@ -335,7 +334,7 @@ var todo = (function( $ ){
 			return;
 		}
 
-		$.ajax('/wp-json/posts?type=todos&filter[author]=' + $currentUserID , {
+		$.ajax('/wp-json/wp/v2/posts?type=todos&filter[author]=' + $currentUserID , {
 			success : function( data ){
 
 				if ( data.length === 0 && $('.item').length > 0 ){
