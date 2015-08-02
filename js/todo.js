@@ -14,7 +14,10 @@ var todo = (function( $ ){
 	var $messages = $('#messages');
 	var $listItemTemplate = $('#list-item-template').html();
 	var $nicknameEdit = $('#nickname-edit');
-	var $inviteButton = $('#open-invite');
+
+	if ( $currentUserID === undefined ){
+		return false; // not logged in
+	}
 
 	var timer;
 
@@ -381,6 +384,23 @@ var todo = (function( $ ){
 
 
 	$nicknameEdit.html('Edit Profile');
+	
+
+	return {
+		currentUser : $currentUserID,
+		flashSuccess : flashSuccess
+	};
+
+})( jQuery );
+
+var inviteFriend = (function( $ ){
+
+	var $inviteButton = $('#open-invite');
+	var $inviteForm = $('#invite-friend');
+	var $inviteSubmit = $('#invite-submit');
+	var $friendEmail = $('#friend-email');
+	var $currentUserID = $('#current-user').val();
+	var $popup = $('.popup');
 
 	$inviteButton.magnificPopup({
 	  mainClass : 'mfp-invite',
@@ -390,9 +410,36 @@ var todo = (function( $ ){
 	  }
 	});
 
-	return {
-		currentUser : $currentUserID,
-		flashSuccess : flashSuccess
-	};
+	$inviteForm.on( 'submit', inviteFriend );
+
+	function inviteFriend( e ){
+		e.preventDefault();
+		var email = _.escape( $friendEmail.val().substring(0, 50) );
+		$friendEmail.val('');
+		$.ajax({
+			type : "POST",
+			url : '/index.php',
+			data : {
+				invite_friend : true,
+				email: email,
+				author: $currentUserID
+			},
+			success : function( data ){
+				console.log( data );
+				if ( data === 'success'){
+					$popup.append('<br/><p>Message sent successfully!</p>');
+				} else {
+					$popup.append("</br><p>Something went wrong :( <br>Try again later.</p>");
+				}
+			}
+
+		});
+	}
+
+	return;
 
 })( jQuery );
+
+
+
+

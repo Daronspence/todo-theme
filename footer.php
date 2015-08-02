@@ -18,16 +18,25 @@
 	</footer><!-- #colophon -->
 
 	</div><!-- #content -->
-
+	
 	<div class="popup mfp-hide">
 		<h3>Invite a Friend!</h3>
-		<p>Invite a friend and enjoy the feeling of being awesome!</p>
-		<form method="POST" id="invite-friend" action"/index.php">
-			<label>Email:
-				<input id="friend-email" name="friend-email" type="email" placeholder="my-friend@gmail.com" required />
-			</label>
-			<input id="invite-submit" type="submit" value="Invite!">
-		</form>
+
+		<?php if ( is_user_logged_in() ) : ?>
+
+			<p>Invite a friend and enjoy the feeling of being awesome!</p>
+			<form method="POST" id="invite-friend" action"/index.php">
+				<label>Email:
+					<input id="friend-email" name="friend-email" type="email" placeholder="my-friend@gmail.com" required />
+				</label>
+				<input id="invite-submit" type="submit" value="Invite!">
+			</form>
+
+		<?php else : ?>
+
+			<h2>You must be <a href="/wp-login.php">logged in</a> to do that!</h2>
+		
+		<?php endif; ?>
 	</div>
 	
 </div><!-- #page -->
