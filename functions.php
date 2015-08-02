@@ -118,11 +118,11 @@ function todo_scripts() {
 
 	wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', array( 'jquery' ), '20150711', true );
 
-	wp_enqueue_script( 'todo-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'todo-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20150115', true );
 
-		wp_enqueue_script( 'mustache', get_template_directory_uri() . '/bower_components/mustache/mustache.js', array( 'jquery', 'underscore' ), '20120206', true );
+		wp_enqueue_script( 'mustache', get_template_directory_uri() . '/bower_components/mustache/mustache.js', array( 'jquery', 'underscore' ), '20150206', true );
 
-		wp_enqueue_script( 'todo-app', get_template_directory_uri() . '/js/todo.js', array( 'jquery', 'underscore' ), '20120206', true );
+		wp_enqueue_script( 'todo-app', get_template_directory_uri() . '/js/todo.js', array( 'jquery', 'underscore' ), '20150206', true );
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
