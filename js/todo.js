@@ -96,7 +96,7 @@ var todo = (function( $ ){
 
 		    	var id = $(_this).attr('data-id');
 		    	var val = _.escape( $(_this).val() );
-
+ 
 		    	$.ajax({
 		    		type : 'POST',
 		    		url  : '/index.php',
