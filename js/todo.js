@@ -425,7 +425,6 @@ var inviteFriend = (function( $ ){
 				author: $currentUserID
 			},
 			success : function( data ){
-				console.log( data );
 				if ( data === 'success'){
 					$popup.append('<br/><p>Message sent successfully!</p>');
 				} else {
