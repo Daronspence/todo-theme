@@ -14,7 +14,7 @@ get_header();
 
 <form method="GET" action="/index.php" id="add-item-form">
 	<input type="hidden" value="<?php echo get_current_user_id(); ?>" id="current-user" name="author" />
-	<input type="text" class="add-item-input" id="add-item-input" name="todo-item-add" placeholder="Buy Milk" maxlength='140' required />
+	<input type="text" class="add-item-input" id="add-item-input" name="todo-item-add" placeholder="Buy Milk" maxlength='140' required autofocus />
 	<input type="submit" value="Add Item" id="add-item-submit" class="button" />
 	<?php wp_nonce_field( 'add-item' ); ?>
 </form>

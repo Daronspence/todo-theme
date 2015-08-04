@@ -169,7 +169,7 @@ var todo = (function( $ ){
 
 		var id = $item.children('input[type="text"]').attr('data-id');
 
-		console.log( id );
+		// console.log( id );
 		
 		$.ajax({
 			type : 'POST',
